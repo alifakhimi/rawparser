@@ -230,7 +230,7 @@ func (n Cr2Parser) processIfds(f *os.File, h *cr2Header) (j *jpegInfo, cDate tim
 // Returns the full path to the jpeg extracted or an error.
 func (n Cr2Parser) decodeAndWriteJpeg(f *os.File, j *jpegInfo, destDir string, quality int) (jpegFileName string, err error) {
 	// extract jpeg to new file
-	jpegFileName = genExtractedJpegName(f, destDir, "jpg")
+	jpegFileName = genExtractedJpegName(f, destDir, ".jpg")
 	log.Printf("Creating JPEG file: %s\n", jpegFileName)
 
 	data := make([]byte, j.length)
