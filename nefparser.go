@@ -220,7 +220,7 @@ func (n NefParser) processIfds(f *os.File, h *nefHeader) (j *jpegInfo, cDate tim
 // Returns the full path to the jpeg extracted or an error.
 func (n NefParser) decodeAndWriteJpeg(f *os.File, j *jpegInfo, destDir string, quality int) (jpegFileName string, err error) {
 	// extract jpeg to new file
-	jpegFileName = genExtractedJpegName(f, destDir, "_extracted.jpg")
+	jpegFileName = genExtractedJpegName(f, destDir, "jpg")
 	log.Printf("Creating JPEG file: %s\n", jpegFileName)
 
 	data := make([]byte, j.length)

@@ -52,7 +52,7 @@ func decodeAndWriteJpeg(data []byte, quality int, filename string) error {
 		return err
 	}
 
-	// Encode and write using specifid JPEG quality
+	// Encode and write using specified JPEG quality
 	err = encodeAndWriteJpeg(jpegFile, decodedImage, quality)
 	if err != nil {
 		log.Printf("Error encoding embedded jpeg: %v\n", err)

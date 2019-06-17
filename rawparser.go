@@ -30,6 +30,7 @@ package rawparser
 import (
 	"fmt"
 	"os"
+	"path"
 	"path/filepath"
 	"strings"
 	"time"
@@ -223,7 +224,10 @@ func toRfc822Date(dateTokens []string) (string, error) {
 // Example:
 //     destDir="/path_to/outputDir"
 //     suffix="_extracted.jpg"
-// Returns fully-qualified path to the JPEG extraced from the raw file.
+// Returns fully-qualified path to the JPEG extracted from the raw file.
 func genExtractedJpegName(f *os.File, destDir, suffix string) string {
-	return destDir + filepath.Base(f.Name()) + suffix
+	var filename = filepath.Base(f.Name())
+	var extension = filepath.Ext(filename)
+	var name = strings.TrimSuffix(filename, extension)
+	return path.Join(destDir, name + suffix)
 }
